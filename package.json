@@ -2,18 +2,44 @@
   "name": "electronautoupdate",
   "version": "1.0.0",
   "description": "some test project",
+  "author": "Rafael Ferreira, Inc <rarafa245@gmail.com>",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "deploy": "electron-builder build --linux --publish always"
   },
-  "author": "rafael ferreira",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "electron": "^13.1.6",
     "electron-builder": "^22.11.7"
   },
   "dependencies": {
     "electron-updater": "^4.3.9"
+  },
+  "build": {
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "rarafa245",
+        "repo": "testing_auto_updating_electron"
+      }
+    ],
+    "linux": {
+      "appId": "something",
+      "target": "AppImage",
+      "category": "Utility"
+    }
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/rarafa245/testing_auto_updating_electron"
+  },
+  "publish": {
+    "provider": "github",
+    "repo": "https://github.com/rarafa245/testing_auto_updating_electron",
+    "owner": "rarafa245",
+    "releaseType": "release",
+    "publishAutoUpdate": true
   }
 }
